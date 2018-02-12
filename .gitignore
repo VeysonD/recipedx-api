@@ -1,2 +1,5 @@
 #Dependencies
 node_modules
+
+#Local variables
+PORT=4201
