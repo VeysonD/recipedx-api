@@ -5,6 +5,8 @@ const morgan = require('morgan');
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
 
+const data = require('./../db/data/mock-data');
+
 app = express();
 
 const jwtCheck = jwt({
@@ -28,7 +30,7 @@ app.use(cors());
 
 app.get('/api/recipes', (req, res, next) => {
   console.log('Testing get');
-  res.send('Here be recipes');
+  res.send(data.module);
 });
 
 app.get('/api/recipe/:id', (req, res, next) => {
