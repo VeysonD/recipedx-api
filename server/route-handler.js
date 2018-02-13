@@ -34,7 +34,7 @@ app.use(cors());
 // // Uncomment the jwtCheck middleware to enable authentication across whole application
 // app.use(jwtCheck);
 
-app.get('/api/recipes', jwtCheck, (req, res, next) => {
+app.get('/api/recipes', (req, res, next) => {
   console.log('Testing get');
   res.send(data.module);
 });
