@@ -10,6 +10,10 @@ const data = require('./../db/data/mock-data');
 
 app = express();
 
+
+// To-do: Remove domain names
+// Check why issuer does not work
+
 const jwtCheck = jwt({
   secret: jwks.expressJwtSecret({
     cache: true,
@@ -18,7 +22,7 @@ const jwtCheck = jwt({
     jwksUri: "https://fdash4.auth0.com/.well-known/jwks.json"
   }),
   audience: 'http://localhost:4201',
-  issuer: 'https://fdash4.auth0.com',
+  // issuer: 'https://fdash4.auth0.com',
   algorithms: ['RS256']
 });
 
@@ -26,10 +30,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cors());
-// Uncomment the jwtCheck middleware to enable authentication
+
+// // Uncomment the jwtCheck middleware to enable authentication across whole application
 // app.use(jwtCheck);
 
-app.get('/api/recipes', (req, res, next) => {
+app.get('/api/recipes', jwtCheck, (req, res, next) => {
   console.log('Testing get');
   res.send(data.module);
 });
