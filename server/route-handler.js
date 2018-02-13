@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
 
+// Mock data for testing purposes only
 const data = require('./../db/data/mock-data');
 
 app = express();
