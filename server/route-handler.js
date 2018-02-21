@@ -43,4 +43,8 @@ app.get('/api/recipe/:id', (req, res, next) => {
   res.send('Here be one recipe');
 });
 
+app.post('/api/upload', (req, res, next) => {
+  res.send('Upload request received');
+});
+
 module.exports = app;
