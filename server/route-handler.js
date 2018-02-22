@@ -11,7 +11,7 @@ const data = require('./../db/data/mock-data');
 app = express();
 
 
-// To-do: Remove domain names
+// TODO: Remove domain names
 // Check why issuer does not work
 
 const jwtCheck = jwt({
@@ -31,11 +31,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cors());
 
-// // Uncomment the jwtCheck middleware to enable authentication across whole application
+// Uncomment the jwtCheck middleware to enable authentication across whole application
 app.use(jwtCheck);
 
 app.get('/api/recipes', (req, res, next) => {
-  console.log('Testing get');
   res.send(data.module);
 });
 
