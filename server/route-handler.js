@@ -26,13 +26,13 @@ const jwtCheck = jwt({
   algorithms: ['RS256']
 });
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(morgan('dev'));
 app.use(cors());
 
-// Uncomment the jwtCheck middleware to enable authentication across whole application
-app.use(jwtCheck);
+// // Uncomment the jwtCheck middleware to enable authentication across whole application
+// app.use(jwtCheck);
 
 app.get('/api/recipes', (req, res, next) => {
   res.send(data.module);
