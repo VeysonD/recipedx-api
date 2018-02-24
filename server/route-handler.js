@@ -31,8 +31,8 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(morgan('dev'));
 app.use(cors());
 
-// // Uncomment the jwtCheck middleware to enable authentication across whole application
-// app.use(jwtCheck);
+// Uncomment the jwtCheck middleware to enable authentication across whole application
+app.use(jwtCheck);
 
 app.get('/api/recipes', (req, res, next) => {
   res.send(data.module);
@@ -43,7 +43,8 @@ app.get('/api/recipe/:id', (req, res, next) => {
 });
 
 app.post('/api/upload', (req, res, next) => {
-  res.send('Upload request received');
+  console.log('What is the upload request: ', req);
+  res.send(['Here lies a recipe']);
 });
 
 module.exports = app;
