@@ -4,6 +4,9 @@ const cors = require('cors');
 const morgan = require('morgan');
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
+const multer = require('multer');
+
+const upload = multer({ storage: multer.memoryStorage() });
 
 // Mock data for testing purposes only
 const data = require('./../db/data/mock-data');
@@ -42,7 +45,7 @@ app.get('/api/recipe/:id', (req, res, next) => {
   res.send('Here be one recipe');
 });
 
-app.post('/api/upload', (req, res, next) => {
+app.post('/api/upload', upload.array('photos', 4), (req, res, next) => {
   console.log('What is the upload request: ', req);
   res.send(['Here lies a recipe']);
 });
