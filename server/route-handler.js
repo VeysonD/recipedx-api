@@ -45,6 +45,13 @@ app.get('/api/recipe/:id', (req, res, next) => {
   res.send('Here be one recipe');
 });
 
+app.get('/api/search', (req, res, next) => {
+  console.log('What is the req: ', req);
+  
+  //TODO: Send only recipes that are searched for
+  res.send(data.module);
+});
+
 app.post('/api/upload', upload.array('photos', 4), (req, res, next) => {
   console.log('What is the upload request: ', req);
   res.send(['Here lies a recipe']);
