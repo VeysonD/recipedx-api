@@ -46,8 +46,8 @@ app.get('/api/recipe/:id', (req, res, next) => {
 });
 
 app.get('/api/search', (req, res, next) => {
-  console.log('What is the req: ', req);
-  
+  console.log('What is the req: ', req.query);
+
   //TODO: Send only recipes that are searched for
   res.send(data.module);
 });
