@@ -19,7 +19,7 @@ exports.module = [
     imageUrl: 'https://media-cdn.tripadvisor.com/media/photo-s/04/52/7b/80/city-pizza-italian-cuisine.jpg',
     title: 'meat lovers pizza',
     Photos: [
-      {image: 'http://www.pizzahut-tt.com/wp-content/uploads/2013/06/pizza-hut-trinidad-and-tobago-meat-lovers.png'},
+      {image: 'https://philgifts.com/media/catalog/product/cache/5/image/645x645/d64e48a683e6216d3bb62d8857d8ec02/m/e/meat_lovers_pizza_1.jpg'},
       {image: 'http://hartsgrovepizza.com/wp-content/uploads/2016/01/Meat-Lovers.jpg'}
     ],
     isStarred: true,
