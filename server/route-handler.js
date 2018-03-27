@@ -24,7 +24,7 @@ const jwtCheck = jwt({
     jwksRequestsPerMinute: 5,
     jwksUri: "https://fdash4.auth0.com/.well-known/jwks.json"
   }),
-  audience: 'http://localhost:4201',
+  audience: process.env.AUDIENCE || 'http://localhost:4201',
   // issuer: 'https://fdash4.auth0.com',
   algorithms: ['RS256']
 });
