@@ -22,7 +22,7 @@ const jwtCheck = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: "https://fdash4.auth0.com/.well-known/jwks.json"
+    jwksUri: process.env.JWKS_URI || 'https://fdash4.auth0.com/.well-known/jwks.json'
   }),
   audience: process.env.AUDIENCE || 'http://localhost:4201',
   // issuer: 'https://fdash4.auth0.com',
