@@ -13,8 +13,6 @@ const data = require('./../db/data/mock-data');
 
 app = express();
 
-
-// TODO: Remove domain names
 // Check why issuer does not work
 
 const jwtCheck = jwt({
@@ -22,9 +20,9 @@ const jwtCheck = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: process.env.JWKS_URI || 'https://fdash4.auth0.com/.well-known/jwks.json'
+    jwksUri: process.env.JWKS_URI
   }),
-  audience: process.env.AUDIENCE || 'http://localhost:4201',
+  audience: process.env.AUDIENCE,
   // issuer: 'https://fdash4.auth0.com',
   algorithms: ['RS256']
 });
