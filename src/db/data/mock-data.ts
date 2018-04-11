@@ -1,4 +1,4 @@
-exports.module = [
+const data = [
   {
     user: 'UnicornKiller',
     imageUrl: 'https://thetacotrail.files.wordpress.com/2011/12/p10506821.jpg',
@@ -140,3 +140,6 @@ exports.module = [
     ]
   }
 ]
+
+
+export default data;

@@ -1,17 +1,16 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const morgan = require('morgan');
-const jwt = require('express-jwt');
-const jwks = require('jwks-rsa');
-const multer = require('multer');
-
-const upload = multer({ storage: multer.memoryStorage() });
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import morgan from 'morgan';
+import jwt from 'express-jwt';
+import jwks from 'jwks-rsa';
+import multer from 'multer';
 
 // Mock data for testing purposes only
-const data = require('./../db/data/mock-data');
+import data from './../db/data/mock-data';
 
-app = express();
+const upload = multer({ storage: multer.memoryStorage() });
+const app = express();
 
 // Check why issuer does not work
 
@@ -20,7 +19,7 @@ const jwtCheck = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: process.env.JWKS_URI
+    jwksUri: process.env.JWKS_URI,
   }),
   audience: process.env.AUDIENCE,
   // issuer: 'https://fdash4.auth0.com',
@@ -36,7 +35,7 @@ app.use(cors());
 app.use(jwtCheck);
 
 app.get('/api/recipes', (req, res, next) => {
-  res.send(data.module);
+  res.send(data);
 });
 
 app.get('/api/recipe/:id', (req, res, next) => {
@@ -47,7 +46,7 @@ app.get('/api/search', (req, res, next) => {
   console.log('What is the req: ', req.query);
 
   //TODO: Send only recipes that are searched for
-  res.send(data.module);
+  res.send(data);
 });
 
 app.post('/api/upload', upload.array('photos', 4), (req, res, next) => {
