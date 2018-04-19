@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
@@ -34,22 +34,22 @@ app.use(cors());
 // Uncomment the jwtCheck middleware to enable authentication across whole application
 app.use(jwtCheck);
 
-app.get('/api/recipes', (req, res, next) => {
+app.get('/api/recipes', (req: Request, res: Response, next) => {
   res.send(data);
 });
 
-app.get('/api/recipe/:id', (req, res, next) => {
+app.get('/api/recipe/:id', (req: Request, res: Response, next) => {
   res.send('Here be one recipe');
 });
 
-app.get('/api/search', (req, res, next) => {
+app.get('/api/search', (req: Request, res: Response, next) => {
   console.log('What is the req: ', req.query);
 
   //TODO: Send only recipes that are searched for
   res.send(data);
 });
 
-app.post('/api/upload', upload.array('photos', 4), (req, res, next) => {
+app.post('/api/upload', upload.array('photos', 4), (req: Request, res: Response, next) => {
   console.log('What is the upload request: ', req);
   res.send(['Here lies a recipe']);
 });
