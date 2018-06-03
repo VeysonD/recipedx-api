@@ -1,3 +1,10 @@
 {
-  "extends": "tslint:latest"
+  "extends": "tslint:latest",
+  "no-consecutive-blank-lines": false,
+  "no-unused-variable": true,
+  "quotemark": [
+    true,
+    "single",
+    "jsx-double"
+  ],
 }
