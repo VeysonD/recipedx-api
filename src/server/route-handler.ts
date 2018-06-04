@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import jwt from 'express-jwt';
 import jwks from 'jwks-rsa';
 import multer from 'multer';
+import { graphql, buildSchema } from 'graphql';
 
 // Mock data for testing purposes only
 import data from './../db/data/mock-data';
